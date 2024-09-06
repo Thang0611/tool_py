@@ -1,0 +1,7 @@
+Package Name,Activity Class Name
+com.Slack,slack.calls.push.CallNavigationActivity
+com.Slack,slack.features.home.HomeActivity
+com.Slack,slack.features.legacy.files.share.UploadActivity
+com.Slack,slack.features.deeplinking.DeepLinkActivity
+com.Slack,slack.features.notifications.settings.activities.NotificationSettingsActivity
+com.Slack,androidx.compose.ui.tooling.PreviewActivity

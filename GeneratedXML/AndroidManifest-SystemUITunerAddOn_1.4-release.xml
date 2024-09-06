@@ -1,0 +1,46 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="5" android:versionName="1.4" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" package="tk.zwander.systemuituner.systemsettings" platformBuildVersionCode="34" platformBuildVersionName="14">
+  <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="22"/>
+  <permission android:name="com.zacharee1.systemuituner.permission.WRITE_SETTINGS" android:protectionLevel="0x00000002"/>
+  <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+  <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+  <uses-permission android:name="com.zacharee1.systemuituner.permission.WRITE_SETTINGS"/>
+  <permission android:name="tk.zwander.systemuituner.systemsettings.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="0x00000002"/>
+  <uses-permission android:name="tk.zwander.systemuituner.systemsettings.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <application android:theme="@7F10000B" android:label="@7F0F001C" android:icon="@7F0D0000" android:name="tk.zwander.systemuituner.systemsettings.App" android:testOnly="true" android:allowBackup="false" android:supportsRtl="true" android:extractNativeLibs="false" android:roundIcon="@7F0D0001" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+    <activity android:theme="@7F10000C" android:name="tk.zwander.systemuituner.systemsettings.WriteSystemActivity" android:permission="com.zacharee1.systemuituner.permission.WRITE_SETTINGS" android:exported="true">
+      <intent-filter>
+        <action android:name="com.zacharee1.systemuituner.WRITE_SYSTEM"/>
+      </intent-filter>
+    </activity>
+    <receiver android:name="tk.zwander.systemuituner.systemsettings.WriteSystemListener" android:permission="com.zacharee1.systemuituner.permission.WRITE_SETTINGS" android:exported="true">
+      <intent-filter>
+        <action android:name="com.zacharee1.systemuituner.WRITE_SYSTEM"/>
+      </intent-filter>
+    </receiver>
+    <service android:name="tk.zwander.systemuituner.systemsettings.SettingsService" android:permission="com.zacharee1.systemuituner.permission.WRITE_SETTINGS" android:exported="true"/>
+    <meta-data android:name="com.bugsnag.android.API_KEY" android:value="07d098f409403befbb687799785659ae"/>
+    <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="tk.zwander.systemuituner.systemsettings.androidx-startup">
+      <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+      <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+      <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+    </provider>
+    <provider android:name="com.bugsnag.android.internal.BugsnagContentProvider" android:exported="false" android:authorities="tk.zwander.systemuituner.systemsettings.bugsnag-startup" android:initOrder="9000"/>
+    <receiver android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+      </intent-filter>
+    </receiver>
+    <meta-data android:name="com.bugsnag.android.BUILD_UUID" android:value="6f535ade-bf8b-4ca8-9050-564b8b66ab11"/>
+  </application>
+</manifest>
